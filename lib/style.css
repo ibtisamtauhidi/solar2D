@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+
+*, html, body {
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	cursor: default;
+}
+a {
+	color: #F30;
+	text-decoration: none;
+	cursor: help;
+}
+a:hover {
+	color: #060;
+	text-decoration: none;
+}
+#frame {
+	background: #000;
+}
+.control {
+	position: absolute;
+	color: #000;
+	background: #F93;
+	height: 23px;
+	width: 30px;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+#zoomin {
+	bottom: 20px;
+	left: 20px;
+}
+#zoomout {
+	bottom: 20px;
+	left: 55px;	
+}
+#goup {
+	bottom: 80px;
+	right: 50px;
+}
+#goleft {
+	bottom: 50px;
+	right: 83px;
+}
+#goright {
+	bottom: 50px;
+	right: 17px;
+}
+#godown {
+	bottom: 20px;
+	right: 50px;
+}
+#gocentre {
+	bottom: 50px;
+	right: 50px;
+}
+#back, #real, #fwd, #datetime, #now {
+	bottom: 20px;
+}
+#back {
+	left: 200px;	
+}
+#real {
+	left: 235px;	
+}
+#fwd {
+	left: 270px;	
+}
+#datetime {
+	width: 210px;
+	left: 310px;
+	font-weight: normal;
+	font-size: 13px;
+	text-align: left;
+	padding-left: 10px;
+}
+#now {
+	left: 535px;	
+}
+#header {
+	background: rgba(255,255,255,0.7);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	min-height: 50px;
+	min-width: 100%;
+	padding-top: 20px;
+	font-size: 24px;
+	padding-left: 20px;
+}
+#intro {
+	position: absolute;
+	left: 25%;
+	width: 50%;
+	top: 100px;
+	background: #FFF;
+	border: 5px solid;
+	border-color: #666;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding-bottom: 15px;
+}
+p {
+	margin-top: 10px;
+	text-align: justify;
+	font-size: 16px;
+}
+#note, #okgotit {
+	margin: 20px;
+}
+#note {
+	max-height: 30%;
+}
+#okgotit {
+	margin-top: 40px;
+	background: #036;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 20px;
+	font-size: 18px;
+}
