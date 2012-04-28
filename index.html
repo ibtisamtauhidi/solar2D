@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Solar 2D</title>
+        <link rel="stylesheet" type="text/css" href="./lib/style.css"> 
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/script.js"></script>
+        <script>
+            var eccentricity = new Array(0,0.205,0.007,0.017,0.094,0.049,0.057,0.046,0.011,0.244);
+            var aphelion = new Array(0,69.8,108.9,152.1,249.2,816.6,1514.5,3003.6,4545.7,7304.3);
+            var bodyC = new Array('FF4F00','FFFF44','FF1111','5915FF','591500','591532','5545FF','7315FF','5215FF','3915FF');
+			var bodyN = new Array('Sun','Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto');
+            var bodyR = new Array(1205380,4879,12104,12756,6792,142984,120536,51118,49528,2390);
+			var orbitPeriod = new Array(0,7603200000,19414080000,31553280000,59356800000,374198400000,928540800000,2642889600000,5166720000000,7826803200000);
+			var epoch = new Array();
+			epoch[0] = new Date(2001, 0, 1, 0, 0, 0, 1);
+			epoch[1] = new Date(1995, 10, 29, 0, 0, 0, 1);
+			epoch[2] = new Date(1995, 11, 1, 0, 0, 0, 1);
+			epoch[3] = new Date(1996, 5, 21, 0, 0, 0, 1);
+			epoch[4] = new Date(1997, 0, 28, 0, 0, 0, 1);
+			epoch[5] = new Date(2005, 2, 29, 0, 0, 0, 1);
+			epoch[6] = new Date(2018, 1, 8, 0, 0, 0, 1);
+			epoch[7] = new Date(2008, 3, 17, 0, 0, 0, 1);
+			epoch[8] = new Date(2112, 1, 1, 0, 0, 0, 1);
+			epoch[9] = new Date(2113, 7, 1, 0, 0, 0, 1);
+            var bodyX = new Array();
+            var bodyY = new Array();
+			bodyX[0]=0;
+			bodyY[0]=0;
+            var scale = 1500;
+            var posX = window.innerWidth/2;
+            var posY = window.innerHeight/2;
+            var zoomVAR = 0;
+            var moveVAR = 0;
+			var currentTime = new Date();
+			var timeRate = 1;
+			var fastForward = 0;
+        </script>
+    </head>
+	<body onLoad="startApp()">
+    	<div id="frame"></div>
+        <div class="control" id="zoomin" onMouseDown="zoomin()" onMouseUp="zoomend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">+</div>
+        <div class="control" id="zoomout" onMouseDown="zoomout()" onMouseUp="zoomend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">-</div>
+        <div class="control" id="goleft" onMouseDown="moveleft()" onMouseUp="moveend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x25C4;</div>
+        <div class="control" id="goright" onMouseDown="moveright()" onMouseUp="moveend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x25BA;</div>
+        <div class="control" id="gocentre" onClick="movecentre()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x06DE;</div>        
+        <div class="control" id="goup" onMouseDown="moveup()" onMouseUp="moveend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x25B2;</div>
+        <div class="control" id="godown" onMouseDown="movedown()" onMouseUp="moveend()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x25BC;</div>
+        <div class="control" id="back" onClick="slowTimeRate()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x00AB;</div>
+        <div class="control" id="real" onClick="normalTimeRate()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x2248;</div>
+        <div class="control" id="fwd" onClick="fastTimeRate()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x00BB;</div>
+        <div class="control" id="datetime">TIME</div>
+        <div class="control" id="now" onClick="toCurrentTime()" onMouseOver="mouseover(this.id)" onMouseOut="mouseout(this.id)">&#x2126;</div>
+        <div id="header"><div id="appname" onClick="resetApp()" onMouseOver="headermouseover()" onMouseOut="headermouseout()">Solar System 2D</div></div>
+
+
+		<div id="intro"><div id="okgotit" onClick="okgotit()" onMouseOver="intromouseover()" onMouseOut="intromouseout()">OK. Got it. Let me continue &#x00BB;</div><div id="note"><p><img src="./img/uiguide.png" alt="User Interface Guide" width="600px"></p></div></div>
+
+    </body>
+	</html>
